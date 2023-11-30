@@ -40,6 +40,10 @@ The project is configured to use `PostgreSQL` database.
 - Four database tables (`users` / `posts` / `comments` / `likes`)
 - One to many relation between `users` & `posts` tables
 - Both `comments` & `likes` are bridge tables for many to many relation between `users` & `posts` tables
+- Four model files (`User` / `Post` / `Comment` / `Like`)
+- Method `recent_posts` allows fetching the last three post for any user
+- Method `recent_comments` allows fetching the last five comments for any post
+- Private method `counter` auto increments the number of (`posts` / `comments` / `likes`) for the relevant owner table
 
 <p align="right"><a href="#title">back to top</a></p>
 
@@ -59,9 +63,9 @@ You can easily download or fork this repository and work on it immadiately!
 ```
 bundle install
 ```
-- Create all required databases with
+- Create all required databases & table schemas with
 ```
-rails db:create
+rails db:setup
 ```
 
 📌 **Development:**
