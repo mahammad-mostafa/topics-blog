@@ -35,6 +35,7 @@ The project is configured to use `PostgreSQL` database.
 - Programming language is `Ruby`
 - Database used is `PostgreSQL`
 - Framework used is `Rails`
+- Tests done with `RSpec`
 
 📌 **Key Features:**
 - Four database tables (`users` / `posts` / `comments` / `likes`)
@@ -44,6 +45,11 @@ The project is configured to use `PostgreSQL` database.
 - Method `recent_posts` allows fetching the last three post for any user
 - Method `recent_comments` allows fetching the last five comments for any post
 - Private method `counter` auto increments the number of (`posts` / `comments` / `likes`) for the relevant owner table
+- Several attribute validation rules for `User` & `Post` models
+- Attributes (`name` / `title` / `posts_counter` / `comments_counter` / `likes_counter`) are required
+- Attribute `title` length must be smaller than or equal 250 characters
+- Attributes (`posts_counter` / `comments_counter` / `likes_counter`) must be an integer and greate than or equal zero
+- Unit tests for attribute validation rules and model methods
 
 <p align="right"><a href="#title">back to top</a></p>
 
@@ -59,7 +65,7 @@ You can easily download or fork this repository and work on it immadiately!
 - You need `Ruby` language & `PostgreSQL` database installed
 
 📌 **Installation:**
-- To install all gem dependencies run
+- To get all required gem dependencies run
 ```
 bundle install
 ```
@@ -72,6 +78,16 @@ rails db:setup
 - Run live server using
 ```
 rails server
+```
+- Manipulate & process models data through
+```
+rails console
+```
+
+📌 **Tests:**
+- Run all unit test with
+```
+bundle exec rspec -f d
 ```
 
 <p align="right"><a href="#title">back to top</a></p>
