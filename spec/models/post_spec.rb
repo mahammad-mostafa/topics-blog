@@ -19,23 +19,31 @@ RSpec.describe Post, type: :model do
     end
   end
   context 'comments_counter attribute' do
-    it 'should be an integer' do
+    it 'should not be a string' do
       subject.comments_counter = 'i'
       expect(subject).to_not(be_valid)
     end
-    it 'should be greate than or equal zero' do
+    it 'should not be smaller than zero' do
       subject.comments_counter = '-1'
       expect(subject).to_not(be_valid)
     end
+    it 'should be an integer and greater than or equal zero' do
+      subject.comments_counter = 0
+      expect(subject).to(be_valid)
+    end
   end
   context 'likes_counter attribute' do
-    it 'should be an integer' do
+    it 'should not be a string' do
       subject.likes_counter = 'i'
       expect(subject).to_not(be_valid)
     end
-    it 'should be greate than or equal zero' do
+    it 'should not be smaller than zero' do
       subject.likes_counter = '-1'
       expect(subject).to_not(be_valid)
+    end
+    it 'should be an integer and greater than or equal zero' do
+      subject.likes_counter = 0
+      expect(subject).to(be_valid)
     end
   end
   context 'recent_comments method' do
