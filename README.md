@@ -52,6 +52,7 @@ Unit tests are carried on models using `RSpec`.
 - Attribute `title` length must be smaller than or equal 250 characters
 - Attributes (`posts_counter` / `comments_counter` / `likes_counter`) must be an integer and greate than or equal zero
 - Unit tests for attribute validation rules and model methods
+- Controller request tests are carried for all action methods
 
 <p align="right"><a href="#title">back to top</a></p>
 
