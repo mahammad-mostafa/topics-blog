@@ -28,8 +28,10 @@ Check the below contents for further details about this project.
 # 📖 Description
 
 This repository is about a user blog with posts & likes.
+Every post contains comments & likes.
 It is built using `Rails` framework with `Ruby`.
 The project is configured to use `PostgreSQL` database.
+Unit tests are carried on models using `RSpec`.
 
 📌 **Tech Stack:**
 - Programming language is `Ruby`
