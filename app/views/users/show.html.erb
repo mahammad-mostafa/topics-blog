@@ -1,2 +1,10 @@
-<h1>User page</h1>
-<p>user information</p>
+<h1>User details</h1>
+<%= render(partial: 'user', locals: { user: @user, details: nil }) %>
+<div>
+  <h2>Bio</h2>
+  <p><%= @user.bio %></p>
+</div>
+<section>
+  <%= render(partial: 'posts/post', collection: @user.recent_posts) %>
+</section>
+<%= link_to('All posts', user_posts_path(@user.id)) %>
