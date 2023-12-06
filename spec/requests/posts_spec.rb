@@ -10,9 +10,9 @@ RSpec.describe PostsController, type: :request do
       get '/users/1/posts'
       expect(response).to(render_template(:index))
     end
-    it 'should return correct response status' do
+    it 'should return correct placeholder text' do
       get '/users/1/posts'
-      expect(response.body).to(include('Posts list'))
+      expect(response.body).to(include('posts list'))
     end
   end
   context 'show action method' do
@@ -24,9 +24,9 @@ RSpec.describe PostsController, type: :request do
       get '/users/1/posts/1'
       expect(response).to(render_template(:show))
     end
-    it 'should return correct response status' do
+    it 'should return correct placeholder text' do
       get '/users/1/posts/1'
-      expect(response.body).to(include('Post page'))
+      expect(response.body).to(include('Post details'))
     end
   end
 end

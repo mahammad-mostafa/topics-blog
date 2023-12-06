@@ -1,2 +1,4 @@
-<h1>Posts list</h1>
-<p>list of all posts</p>
+<h1><%= @user.name %> posts list</h1>
+<section>
+  <%= render(partial: 'post', collection: @posts, locals: { comments: nil }) %>
+</section>

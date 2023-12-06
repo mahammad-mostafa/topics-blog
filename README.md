@@ -29,9 +29,11 @@ Check the below contents for further details about this project.
 
 This repository is about a user blog with posts & likes.
 Every post contains comments & likes.
+Each user displays (`name` / `photo` / `bio`) & number of his `posts`. 
+Each post displays (`title` / `text`) & number of its `comments` & `likes`. 
 It is built using `Rails` framework with `Ruby`.
 The project is configured to use `PostgreSQL` database.
-Unit tests are carried on models using `RSpec`.
+Unit tests are carried on models & controller requests using `RSpec`.
 
 📌 **Tech Stack:**
 - Programming language is `Ruby`
@@ -40,6 +42,7 @@ Unit tests are carried on models using `RSpec`.
 - Tests done with `RSpec`
 
 📌 **Key Features:**
+- Responsive layout to all screen sizes
 - Four database tables (`users` / `posts` / `comments` / `likes`)
 - One to many relation between `users` & `posts` tables
 - Both `comments` & `likes` are bridge tables for many to many relation between `users` & `posts` tables
@@ -52,7 +55,7 @@ Unit tests are carried on models using `RSpec`.
 - Attribute `title` length must be smaller than or equal 250 characters
 - Attributes (`posts_counter` / `comments_counter` / `likes_counter`) must be an integer and greate than or equal zero
 - Unit tests for attribute validation rules and model methods
-- Controller request tests are carried for all action methods
+- Implemented request tests on (`index` / `show`) methods for controllers (`UsersController` / `PostsController`)
 
 <p align="right"><a href="#title">back to top</a></p>
 

@@ -1,0 +1,6 @@
+<article class="user">
+  <img src="<%= user.photo %>" alt="<%= user.name %>">
+  <h2><%= user.name %></h2>
+  <i>Posts: <%= user.posts_counter %></i>
+  <%= link_to('Details', user_path(user.id)) unless defined?(details) %>
+</article>
