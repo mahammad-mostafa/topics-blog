@@ -1,0 +1,11 @@
+<article class="post">
+  <h2><%= post.title %></h2>
+  <i>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></i>
+  <p><%= post.text %></p>
+  <%= link_to('Details', user_post_path(post.user.id, post.id)) unless defined?(details) %>
+  <% if defined?(comments) %>
+  <ul>
+    <%= render(partial: 'comments/comment', collection: post.recent_comments) %>
+  </ul>
+  <% end %>
+</article>
