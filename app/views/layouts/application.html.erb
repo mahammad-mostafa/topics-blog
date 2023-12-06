@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>TopicsBlog</title>
+    <title>Topics Blog</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
@@ -11,6 +11,10 @@
   </head>
 
   <body>
-    <%= yield %>
+    <header>Topics Blog</header>
+    <main>
+      <%= yield %>
+    </main>
+    <footer>&copy;<%= Date.today.year %> All rights reserved</footer>
   </body>
 </html>
