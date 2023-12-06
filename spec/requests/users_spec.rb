@@ -10,7 +10,7 @@ RSpec.describe UsersController, type: :request do
       get '/users/'
       expect(response).to(render_template(:index))
     end
-    it 'should return correct response status' do
+    it 'should return correct placeholder text' do
       get '/users/'
       expect(response.body).to(include('Users list'))
     end
@@ -24,9 +24,9 @@ RSpec.describe UsersController, type: :request do
       get '/users/1'
       expect(response).to(render_template(:show))
     end
-    it 'should return correct response status' do
+    it 'should return correct placeholder text' do
       get '/users/1'
-      expect(response.body).to(include('User page'))
+      expect(response.body).to(include('User details'))
     end
   end
 end
