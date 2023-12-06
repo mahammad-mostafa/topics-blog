@@ -143,6 +143,7 @@ footer {
 .user i,
 .post i {
   font-size: 0.8rem;
+  align-self: flex-end;
   color: var(--label-color);
 }
 
