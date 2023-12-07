@@ -12,7 +12,7 @@ class CommentsController < ApplicationController
       redirect_to(user_post_path(@comment.user, @comment.post))
     else
       @path = user_post_path(current_user, params[:post_id])
-      flash.now[:messages] = @comment.errors.full_messages
+      flash.now[:errors] = @comment.errors.full_messages
       render(:new, status: :unprocessable_entity)
     end
   end
