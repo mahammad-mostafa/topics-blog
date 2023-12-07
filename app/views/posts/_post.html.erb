@@ -2,10 +2,18 @@
   <h2><%= post.title %> by <%= post.user.name %></h2>
   <p><%= post.text %></p>
   <i>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></i>
-  <%= link_to('Details', user_post_path(post.user.id, post.id)) unless defined?(details) %>
-  <% if defined?(comments) %>
+  <% if defined?(actions) %>
+  <i>
+    <%= link_to('Comment', new_user_post_comment_path(post.user, post)) %>
+    <%= link_to('Like', new_user_post_like_path(post.user, post)) %>
+  </i>
+  <% else %>
+    <%= link_to('Details', user_post_path(post.user.id, post.id)) %>
+  <% end %>
+  <% if defined?(comments) && post.comments.size > 0 %>
+  <h3>Comments</h3>
   <ul>
-    <%= render(partial: 'comments/comment', collection: defined?(details) ? post.comments : post.recent_comments) %>
+    <%= render(partial: 'comments/comment', collection: defined?(actions) ? post.comments : post.recent_comments) %>
   </ul>
   <% end %>
 </article>
