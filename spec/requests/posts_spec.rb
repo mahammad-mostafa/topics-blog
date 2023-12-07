@@ -12,7 +12,7 @@ RSpec.describe PostsController, type: :request do
     end
     it 'should return correct placeholder text' do
       get '/users/1/posts'
-      expect(response.body).to(include('posts list'))
+      expect(response.body).to(include('Posts list'))
     end
   end
   context 'show action method' do
