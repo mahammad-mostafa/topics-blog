@@ -3,6 +3,7 @@
   <p><%= post.text %></p>
   <i>Comments: <%= post.comments_counter %> Likes: <%= post.likes_counter %></i>
   <% if defined?(actions) %>
+  <%= render(partial: 'partials/errors') %>
   <i>
     <%= link_to('Comment', new_user_post_comment_path(post.user, post)) %>
     <%= link_to('Like', new_user_post_like_path(post.user, post)) %>
