@@ -31,7 +31,8 @@ h1,
 h2,
 h3,
 p,
-ul {
+ul,
+menu {
   margin: 0;
 }
 
@@ -41,14 +42,19 @@ ul {
   margin-top: 10px;
 }
 
-a {
+a,
+input[type=submit] {
+  cursor: pointer;
   display: block;
-  padding: 10px;
+  font-size: 1rem;
+  padding: 8px 24px;
+  font-style: normal;
   text-align: center;
   text-decoration: none;
   color: var(--title-color);
   background-color: var(--label-color);
   border-radius: 5px;
+  border: none;
 }
 
 body {
@@ -82,9 +88,15 @@ main {
   margin: auto;
 }
 
+menu {
+  display: flex;
+  padding: 0;
+  justify-content: space-between;
+  margin-bottom: 10px;
+}
+
 h1 {
   font-size: 1.6rem;
-  margin-bottom: 10px;
 }
 
 h2 {
@@ -92,19 +104,55 @@ h2 {
   color: var(--title-color);
 }
 
-section {
+h3 {
+  font-size: 1.2rem;
+  margin-top: 10px;
+}
+
+section,
+form {
   display: flex;
   gap: 10px;
   flex-direction: column;
   margin-bottom: 10px;
 }
 
+input,
+textarea {
+  padding: 10px;
+  font-size: 1rem;
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
+  outline: none;
+  resize: none;
+}
+
+form,
 div {
   padding: 10px;
   background-color: var(--block-color);
   border: 1px solid var(--border-color);
   border-radius: 5px;
   margin: 10px auto;
+}
+
+label {
+  margin-bottom: -5px;
+}
+
+em {
+  color: #c00;
+}
+
+span {
+  padding: 5% 0;
+  font-style: italic;
+  font-weight: bolder;
+  text-align: center;
+  color: var(--label-color);
+  background-color: var(--block-color);
+  border: 1px solid var(--border-color);
+  border-radius: 5px;
 }
 
 footer {
@@ -142,6 +190,8 @@ footer {
 
 .user i,
 .post i {
+  display: flex;
+  gap: 10px;
   font-size: 0.8rem;
   align-self: flex-end;
   color: var(--label-color);
@@ -165,12 +215,21 @@ footer {
   margin-top: 10px;
 }
 
+.post em {
+  align-self: flex-end;
+}
+
 .comment {
-  padding: 10px 0;
+  padding-top: 10px;
   border-top: 1px solid var(--page-color);
 }
 
-a:hover {
+.comment b {
+  color: var(--title-color);
+}
+
+a:hover,
+input[type=submit]:hover {
   color: var(--block-color);
   background-color: var(--text-color);
 }

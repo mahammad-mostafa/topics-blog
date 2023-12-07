@@ -1,4 +1,4 @@
-<h1>Users list</h1>
+<%= render(partial: 'partials/menu', locals: { title: 'Users list', path: nil }) %>
 <section>
-  <%= render(partial: 'user', collection: @users) %>
+  <%= @users.size.zero? ? render(partial: 'partials/empty', locals: { name: 'users' }) : render(partial: 'user', collection: @users) %>
 </section>

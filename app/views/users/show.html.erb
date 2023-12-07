@@ -1,10 +1,10 @@
-<h1>User details</h1>
+<%= render(partial: 'partials/menu', locals: { title: 'User details', path: users_path }) %>
 <%= render(partial: 'user', locals: { user: @user, details: nil }) %>
 <div>
   <h2>Bio</h2>
   <p><%= @user.bio %></p>
 </div>
 <section>
-  <%= render(partial: 'posts/post', collection: @user.recent_posts) %>
+  <%= @user.posts.size.zero? ? render(partial: 'partials/empty', locals: { name: 'posts' }) : render(partial: 'posts/post', collection: @user.recent_posts) %>
 </section>
-<%= link_to('All posts', user_posts_path(@user.id)) %>
+<%= link_to('All posts', user_posts_path(@user)) %>

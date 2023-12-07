@@ -1,2 +1,2 @@
-<h1>Post details</h1>
-<%= render(partial: 'post', locals: { post: @post, details: nil, comments: nil }) %>
+<%= render(partial: 'partials/menu', locals: { title: 'Post details', path: user_posts_path }) %>
+<%= render(partial: 'post', locals: { post: @post, actions: nil, comments: nil }) %>
