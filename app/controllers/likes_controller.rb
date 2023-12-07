@@ -1,6 +1,8 @@
 class LikesController < ApplicationController
   def new
-    @like = Like.create(user_id: params[:user_id], post_id: params[:post_id])
+    @like = Like.new(post_id: params[:post_id])
+    @like.user = current_user
+    flash[:errors] = @like.errors.full_messages unless @like.save
     redirect_to(user_post_path(@like.user, @like.post))
   end
 end
