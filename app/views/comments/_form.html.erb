@@ -1,0 +1,11 @@
+<%= form_with model: Comment, url: user_post_comments_path do |form| %>
+  <h2>Comment information</h2>
+  <% unless flash[:messages].nil? %>
+    <% flash[:messages].each do |message| %>
+      <em><%= message %></em>
+    <% end %>
+  <% end %>
+  <%= form.label :text, 'Comment' %>
+  <%= form.text_field :text %>
+  <%= form.submit 'Send' %>
+<% end %>
