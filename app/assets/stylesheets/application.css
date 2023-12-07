@@ -215,6 +215,10 @@ footer {
   margin-top: 10px;
 }
 
+.post em {
+  align-self: flex-end;
+}
+
 .comment {
   padding-top: 10px;
   border-top: 1px solid var(--page-color);
