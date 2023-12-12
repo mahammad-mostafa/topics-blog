@@ -2,4 +2,8 @@
 <section>
   <%= @user.posts.size.zero? ? render(partial: 'partials/empty', locals: { name: 'posts' }) : render(partial: 'post', collection:  @posts, locals: { comments: nil }) %>
 </section>
+<nav>
+  <%= link_to('Previous', path_to_prev_page(@posts)) %>
+  <%= link_to('Next', path_to_next_page(@posts)) %>
+</nav>
 <%= link_to('New post', new_user_post_path(@user)) %>
