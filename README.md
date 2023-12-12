@@ -29,8 +29,9 @@ Check the below contents for further details about this project.
 
 This repository is about a user blog with posts & likes.
 Every post contains comments & likes.
-Each user displays (`name` / `photo` / `bio`) & number of his `posts`. 
-Each post displays (`title` / `text`) & number of its `comments` & `likes`. 
+Each user displays (`name` / `photo` / `bio`) & number of his `posts`.
+Each post displays (`title` / `text`) & number of its `comments` & `likes`.
+Pagination through posts using `kaminari` gem.
 It is built using `Rails` framework with `Ruby`.
 The project is configured to use `PostgreSQL` database.
 Unit tests are carried on models & controller requests using `RSpec`.
