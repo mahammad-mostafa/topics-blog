@@ -6,6 +6,7 @@ class Post < ApplicationRecord
   has_many :comments
   has_many :likes
   after_save :counter
+  paginates_per 3
 
   def recent_comments
     comments.order(id: :desc).limit(5)
