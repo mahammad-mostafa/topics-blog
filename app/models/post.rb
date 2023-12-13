@@ -9,7 +9,7 @@ class Post < ApplicationRecord
   paginates_per 3
 
   def recent_comments
-    comments.order(id: :desc).limit(5)
+    comments.includes(:user).order(id: :desc).limit(5)
   end
 
   def author=(author)
