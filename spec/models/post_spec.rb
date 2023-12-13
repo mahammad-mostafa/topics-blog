@@ -3,12 +3,12 @@ require 'rails_helper'
 RSpec.describe Post, type: :model do
   user = User.new(name: 'name', photo: 'photo', bio: 'bio', posts_counter: 0)
   subject { Post.new(author: user, title: 'title', text: 'text', comments_counter: 0, likes_counter: 0) }
-  context 'initial object' do
+  describe 'initial object' do
     it 'subject should be a valid post' do
       expect(subject).to(be_valid)
     end
   end
-  context 'title attribute' do
+  describe 'title attribute' do
     it 'should not be blank' do
       subject.title = ''
       expect(subject).to_not(be_valid)
@@ -18,7 +18,7 @@ RSpec.describe Post, type: :model do
       expect(subject).to_not(be_valid)
     end
   end
-  context 'comments_counter attribute' do
+  describe 'comments_counter attribute' do
     it 'should not be a string' do
       subject.comments_counter = 'i'
       expect(subject).to_not(be_valid)
@@ -32,7 +32,7 @@ RSpec.describe Post, type: :model do
       expect(subject).to(be_valid)
     end
   end
-  context 'likes_counter attribute' do
+  describe 'likes_counter attribute' do
     it 'should not be a string' do
       subject.likes_counter = 'i'
       expect(subject).to_not(be_valid)
@@ -46,7 +46,7 @@ RSpec.describe Post, type: :model do
       expect(subject).to(be_valid)
     end
   end
-  context 'recent_comments method' do
+  describe 'recent_comments method' do
     it 'should return last five comments' do
       expect(subject.recent_comments).to(eq(subject.comments))
     end

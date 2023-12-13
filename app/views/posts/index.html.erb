@@ -1,6 +1,7 @@
 <%= render(partial: 'partials/menu', locals: { title: 'Posts list', path: user_path(@user) }) %>
+<%= render(partial: 'users/user', locals: { user: @user, details: nil }) %>
 <section>
-  <%= @user.posts.size.zero? ? render(partial: 'partials/empty', locals: { name: 'posts' }) : render(partial: 'post', collection:  @posts, locals: { comments: nil }) %>
+  <%= @posts.length.zero? ? render(partial: 'partials/empty', locals: { name: 'posts' }) : render(partial: 'post', collection:  @posts, locals: { comments: nil }) %>
 </section>
 <nav>
   <%= link_to('Previous', path_to_prev_page(@posts)) %>
