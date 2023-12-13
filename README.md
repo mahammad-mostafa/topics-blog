@@ -57,6 +57,7 @@ Unit tests are carried on models & controller requests using `RSpec`.
 - Attributes (`posts_counter` / `comments_counter` / `likes_counter`) must be an integer and greate than or equal zero
 - Unit tests for attribute validation rules and model methods
 - Implemented request tests on (`index` / `show`) methods for controllers (`UsersController` / `PostsController`)
+- Used `Capybara` gem to carry system tests on (`index` / `show`) action methods for controllers (`UsersController` / `PostsController`)
 
 <p align="right"><a href="#title">back to top</a></p>
 
@@ -109,6 +110,9 @@ bundle exec rspec -f d
 - [GitHub](https://github.com/mahammad-mostafa)
 - [Twitter](https://twitter.com/mahammad_mostfa)
 - [LinkedIn](https://linkedin.com/in/mahammad-mostafa)
+
+📌 **Zabihullah:**
+- [GitHub](https://github.com/ZabihullahNooriWardak)
 
 <p align="right"><a href="#title">back to top</a></p>
 
