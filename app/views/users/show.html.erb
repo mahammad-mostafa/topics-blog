@@ -5,6 +5,6 @@
   <p><%= @user.bio %></p>
 </div>
 <section>
-  <%= @user.posts.size.zero? ? render(partial: 'partials/empty', locals: { name: 'posts' }) : render(partial: 'posts/post', collection: @user.recent_posts) %>
+  <%= @user.posts_counter.zero? ? render(partial: 'partials/empty', locals: { name: 'posts' }) : render(partial: 'posts/post', collection: @user.recent_posts) %>
 </section>
 <%= link_to('All posts', user_posts_path(@user)) %>
