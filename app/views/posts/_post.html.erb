@@ -11,7 +11,7 @@
   <% else %>
     <%= link_to('Details', user_post_path(post.user.id, post.id)) %>
   <% end %>
-  <% if defined?(comments) && post.comments.size > 0 %>
+  <% if defined?(comments) && post.comments.length > 0 %>
   <h3>Comments</h3>
   <ul>
     <%= render(partial: 'comments/comment', collection: defined?(actions) ? post.comments : post.recent_comments) %>
