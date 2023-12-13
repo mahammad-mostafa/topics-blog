@@ -23,7 +23,7 @@ RSpec.describe UsersController, type: :system do
       expect(page).to(have_current_path(user_path(@user)))
     end
   end
-    describe 'show action page' do
+  describe 'show action page' do
     it 'should display name of the user' do
       visit('/users/1')
       expect(page).to(have_content(@user.name))
