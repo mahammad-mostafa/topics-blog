@@ -4,6 +4,8 @@ ruby '3.2.2'
 
 gem 'rubocop', '>= 1.0', '< 2.0'
 
+gem 'devise', '~> 4.9'
+
 gem 'rails-controller-testing'
 
 gem 'kaminari'
