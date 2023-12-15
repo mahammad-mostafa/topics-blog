@@ -28,6 +28,7 @@ Check the below contents for further details about this project.
 # 📖 Description
 
 This repository is about a user blog with posts & likes.
+User authentication is required first.
 Every post contains comments & likes.
 Each user displays (`name` / `photo` / `bio`) & number of his `posts`.
 Each post displays (`title` / `text`) & number of its `comments` & `likes`.
@@ -58,6 +59,7 @@ Unit tests are carried on models & controller requests using `RSpec`.
 - Unit tests for attribute validation rules and model methods
 - Implemented request tests on (`index` / `show`) methods for controllers (`UsersController` / `PostsController`)
 - Used `Capybara` gem to carry system tests on (`index` / `show`) action methods for controllers (`UsersController` / `PostsController`)
+- Built authentication with `Devise` gem before accessing any controller
 
 <p align="right"><a href="#title">back to top</a></p>
 
