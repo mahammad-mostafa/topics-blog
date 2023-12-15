@@ -1,54 +1,56 @@
 require 'rails_helper'
 
 RSpec.describe Post, type: :model do
-  user = User.new(name: 'name', photo: 'photo', bio: 'bio', posts_counter: 0)
-  subject { Post.new(author: user, title: 'title', text: 'text', comments_counter: 0, likes_counter: 0) }
+  let!(:post) do
+    initializer
+    Post.first
+  end
   describe 'initial object' do
-    it 'subject should be a valid post' do
-      expect(subject).to(be_valid)
+    it 'should be a valid post' do
+      expect(post).to(be_valid)
     end
   end
   describe 'title attribute' do
     it 'should not be blank' do
-      subject.title = ''
-      expect(subject).to_not(be_valid)
+      post.title = ''
+      expect(post).to_not(be_valid)
     end
     it 'should not exceed 250 characters' do
-      subject.title *= 100
-      expect(subject).to_not(be_valid)
+      post.title *= 100
+      expect(post).to_not(be_valid)
     end
   end
   describe 'comments_counter attribute' do
     it 'should not be a string' do
-      subject.comments_counter = 'i'
-      expect(subject).to_not(be_valid)
+      post.comments_counter = 'i'
+      expect(post).to_not(be_valid)
     end
     it 'should not be smaller than zero' do
-      subject.comments_counter = '-1'
-      expect(subject).to_not(be_valid)
+      post.comments_counter = '-1'
+      expect(post).to_not(be_valid)
     end
     it 'should be an integer and greater than or equal zero' do
-      subject.comments_counter = 0
-      expect(subject).to(be_valid)
+      post.comments_counter = 0
+      expect(post).to(be_valid)
     end
   end
   describe 'likes_counter attribute' do
     it 'should not be a string' do
-      subject.likes_counter = 'i'
-      expect(subject).to_not(be_valid)
+      post.likes_counter = 'i'
+      expect(post).to_not(be_valid)
     end
     it 'should not be smaller than zero' do
-      subject.likes_counter = '-1'
-      expect(subject).to_not(be_valid)
+      post.likes_counter = '-1'
+      expect(post).to_not(be_valid)
     end
     it 'should be an integer and greater than or equal zero' do
-      subject.likes_counter = 0
-      expect(subject).to(be_valid)
+      post.likes_counter = 0
+      expect(post).to(be_valid)
     end
   end
   describe 'recent_comments method' do
     it 'should return last five comments' do
-      expect(subject.recent_comments).to(eq(subject.comments))
+      expect(post.recent_comments).to(eq(post.comments))
     end
   end
 end

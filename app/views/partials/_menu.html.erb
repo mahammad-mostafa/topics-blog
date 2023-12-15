@@ -2,3 +2,9 @@
   <h1><%= title %></h1>
   <%= link_to('Back', path) unless path.nil? %>
 </menu>
+<% if notice %>
+  <em><%= notice %></em>
+<% end %>
+<% if alert %>
+  <em><%= alert %></em>
+<% end %>

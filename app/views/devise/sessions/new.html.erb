@@ -1,0 +1,11 @@
+<%= render(partial: 'partials/menu', locals: { title: 'Log in', path: nil }) %>
+<%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+  <h2>Logging information</h2>
+  <%= render "devise/shared/error_messages", resource: resource %>
+  <%= f.label :email %>
+  <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <%= f.label :password %>
+  <%= f.password_field :password, autocomplete: "current-password" %>
+  <%= f.submit "Log in" %>
+<% end %>
+<%= render "devise/shared/links" %>
