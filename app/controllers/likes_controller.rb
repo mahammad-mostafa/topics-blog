@@ -1,4 +1,6 @@
 class LikesController < ApplicationController
+  load_and_authorize_resource
+
   def new
     @like = Like.new(post_id: params[:post_id])
     @like.user = current_user
