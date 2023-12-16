@@ -3,9 +3,10 @@ class Post < ApplicationRecord
   validates :comments_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :likes_counter, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   belongs_to :user, foreign_key: :author_id
-  has_many :comments
-  has_many :likes
-  after_save :counter
+  has_many :comments, dependent: :destroy
+  has_many :likes, dependent: :destroy
+  after_save :addition
+  after_destroy :subtraction
   paginates_per 3
 
   def recent_comments
@@ -18,7 +19,11 @@ class Post < ApplicationRecord
 
   private
 
-  def counter
+  def addition
     user.increment!(:posts_counter)
+  end
+
+  def subtraction
+    user.decrement!(:posts_counter)
   end
 end
