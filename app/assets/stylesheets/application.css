@@ -39,7 +39,6 @@ menu {
 ul {
   padding: 0;
   list-style: none;
-  margin-top: 10px;
 }
 
 a,
@@ -185,8 +184,8 @@ footer {
 }
 
 .user img {
-  width: 40px;
-  height: 40px;
+  width: 45px;
+  height: 45px;
   overflow: hidden;
   object-fit: cover;
   position: absolute;
@@ -216,11 +215,11 @@ footer {
 
 .user {
   position: relative;
-  padding-inline-start: 60px;
+  padding-inline-start: 65px;
 }
 
 .post p {
-  margin-top: 10px;
+  margin: 10px 0;
 }
 
 .post em {
@@ -228,12 +227,28 @@ footer {
 }
 
 .comment {
+  display: flex;
+  gap: 10px;
   padding-top: 10px;
+  align-items: center;
+  justify-content: space-between;
   border-top: 1px solid var(--page-color);
+  margin-top: 10px;
 }
 
 .comment b {
   color: var(--title-color);
+}
+
+.comment i {
+  color: inherit;
+  align-self: center;
+  font-size: inherit;
+  margin-inline-end: auto;
+}
+
+.comment a {
+  margin: 0;
 }
 
 a:hover,

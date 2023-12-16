@@ -1,3 +1,5 @@
 <li class="comment">
-  <b><%= comment.user.name %>:</b>&ensp;<%= comment.text %>
+  <b><%= comment.user.name %>:</b>
+  <i><%= comment.text %></i>
+  <%= link_to('Delete', user_post_comment_path(comment.user, comment.post, comment), data: { turbo_method: :delete, turbo_confirm: 'Are you sure?' }) if can?(:destroy, comment) %>
 </li>

@@ -1,11 +1,11 @@
 class Like < ApplicationRecord
   belongs_to :user
   belongs_to :post
-  after_save :counter
+  after_save :addition
 
   private
 
-  def counter
+  def addition
     post.increment!(:likes_counter)
   end
 end
