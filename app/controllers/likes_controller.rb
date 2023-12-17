@@ -1,10 +1,21 @@
 class LikesController < ApplicationController
-  load_and_authorize_resource
+  before_action :set_post
 
-  def new
-    @like = Like.new(post_id: params[:post_id])
-    @like.user = current_user
-    flash[:errors] = @like.errors.full_messages unless @like.save
-    redirect_to(user_post_path(@like.user, @like.post))
+  def create
+    if @post.increment!(:likes_counter)
+      redirect_to @post, notice: 'You liked the post!'
+    else
+      redirect_to root_path, alert: 'Unable to like the post.'
+    end
+  end
+
+  private
+
+  def set_post
+    @post = Post.find_by(id: params[:post_id])
+    return if @post.present?
+
+    flash[:alert] = 'Post not found.'
+    redirect_to root_path
   end
 end

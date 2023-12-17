@@ -1,10 +1,47 @@
-<%= render(partial: 'partials/menu', locals: { title: 'User details', path: users_path }) %>
-<%= render(partial: 'user', locals: { user: @user, details: nil }) %>
-<div>
-  <h2>Bio</h2>
-  <p><%= @user.bio %></p>
+<div class="user-profile">
+  <div class="list">
+    <div class="user-image">
+      <%= image_tag(@user.photo, alt: 'User Image') if @user.photo.present? %>
+    </div>
+    <div class="user-container">
+      <div class="user-name">
+        <%= @user.name %>
+        <p class="post-count">Number of posts: <%= @user.posts_counter %></p>
+      </div>
+    </div>
+  </div>
+
+  <div class="user-bio">
+    <h1>Bio</h1>
+    <%= @user.bio %> 
+  </div>
+
+  <% @user.three_most_recent_posts.each do |post| %> 
+    <div class="user-bio">
+      <div class="post-summary">
+        <h3 class="post-title"><%= post.title %></h3>
+        <%= post.text %>
+        <p class="post-count">Number of comments: <%= post.comments.count %></p> 
+        <p class="post-count">Number of likes: <%= post.likes_counter %></p> 
+        <p><%= link_to 'Read Post', post_path(post) %></p>
+
+        <% if can?(:destroy, post) %>
+  <%= button_to 'Delete Post', post_path(post),
+                method: :delete,
+                data: { confirm: 'Are you sure you want to delete this post?' },
+                class: 'btn btn-danger' %>
+<% end %>
+
+      </div>
+    </div>
+  <% end %>
+
+  <div class="create-post-button">
+    <%= link_to 'Create New Post', new_user_post_path(user_id: @user.id) %>
+  </div>
+  <div class="user-all-posts-button">
+    <%= link_to 'See all posts', user_posts_path(@user), id: 'all-posts-link' %>
+  </div>
+
+  <%= link_to 'Back', request.referer || root_path %>
 </div>
-<section>
-  <%= @user.posts_counter.zero? ? render(partial: 'partials/empty', locals: { name: 'posts' }) : render(partial: 'posts/post', collection: @user.recent_posts) %>
-</section>
-<%= link_to('All posts', user_posts_path(@user)) %>

@@ -1,38 +1,33 @@
 class CommentsController < ApplicationController
+  before_action :set_post, only: %i[new create]
   load_and_authorize_resource
-
-  before_action :set_comment, only: [:destroy]
-  before_action :set_path, only: %i[new create]
 
   def new
     @comment = Comment.new
   end
 
   def create
-    @comment = current_user.comments.build(comment_params)
-    @comment.post = Post.find(params[:post_id])
+    @comment = @post.comments.new(comment_params)
+    @comment.user = current_user
 
     if @comment.save
-      redirect_to user_post_path(@comment.user, @comment.post), notice: 'Comment successfully created'
+      redirect_to @post, notice: 'Comment was successfully created.'
     else
-      flash.now[:errors] = @comment.errors.full_messages
-      render :new, status: :unprocessable_entity
+      render :new
     end
   end
 
   def destroy
+    @comment = Comment.find(params[:id])
+    @post = @comment.post
     @comment.destroy
-    redirect_to user_post_path(@comment.user, @comment.post), alert: 'Comment successfully deleted'
+    redirect_to post_path(@post), notice: 'Comment was successfully deleted.'
   end
 
   private
 
-  def set_comment
-    @comment = Comment.find(params[:id])
-  end
-
-  def set_path
-    @path = user_post_path(current_user, params[:post_id])
+  def set_post
+    @post = Post.find(params[:post_id])
   end
 
   def comment_params
