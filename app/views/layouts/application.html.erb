@@ -1,20 +1,28 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <title>Topics Blog</title>
-    <meta name="viewport" content="width=device-width,initial-scale=1">
-    <%= csrf_meta_tags %>
-    <%= csp_meta_tag %>
+<head>
+  <title>Blog App</title>
+  <%= csrf_meta_tags %>
+  <%= csp_meta_tag %>
+  <%= stylesheet_link_tag 'application', media: 'all' %>
+</head>
+<body>
+  <% if flash[:notice] %>
+    <p class="notice"><%= notice %></p>
+  <% end %>
+  <% if flash[:alert] %>
+    <p class="alert"><%= alert %></p>
+  <% end %>
 
-    <%= stylesheet_link_tag "application", "data-turbo-track": "reload" %>
-    <%= javascript_importmap_tags %>
-  </head>
+  <% unless user_signed_in? %>
+    <% unless current_page?(new_user_session_path) || current_page?(new_user_registration_path) %>
+      <%= link_to 'Log in', new_user_session_path %>
+      <%= link_to 'Sign up', new_user_registration_path %>
+    <% end %>
+  <% else %>
+    <%= link_to 'Log out', destroy_user_session_path, method: :delete, data: { turbo_method: :delete } %>
+  <% end %>
 
-  <body>
-    <header>Topics Blog</header>
-    <main>
-      <%= yield %>
-    </main>
-    <footer>&copy;<%= Date.today.year %> All rights reserved</footer>
-  </body>
+  <%= yield %>
+</body>
 </html>
