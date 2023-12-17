@@ -12,14 +12,16 @@ Check the below contents for further details about this project.
 
 # 📗 Contents
 
-- [Description](#description)
-- [Instructions](#instructions)
-- [Authors](#authors)
-- [Future](#future)
-- [Contributions](#contributions)
-- [Support](#support)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+- [🏷️ Topics Blog](#️-topics-blog)
+- [📗 Contents](#-contents)
+- [📖 Description](#-description)
+- [🛠️ Instructions](#️-instructions)
+- [👥 Authors](#-authors)
+- [🔭 Future](#-future)
+- [🤝🏻 Contributions](#-contributions)
+- [⭐️ Support](#️-support)
+- [🙏🏻 Acknowledgements](#-acknowledgements)
+- [📝 License](#-license)
 
 <!-- DESCRIPTION -->
 
@@ -120,6 +122,7 @@ bundle exec rspec -f d
 
 📌 **Zabihullah:**
 - [GitHub](https://github.com/ZabihullahNooriWardak)
+- [LinkedIn](https://www.linkedin.com/in/zabih-noori-aa59a924a/)
 
 <p align="right"><a href="#title">back to top</a></p>
 
