@@ -10,10 +10,11 @@ Rails.application.routes.draw do
   # root "posts#index"
   root "users#index"
   resources :users, only: [:index, :show] do
-    resources :posts, only: [:index, :show, :new, :create] do
+    resources :posts, only: [:index, :show, :new, :create, :destroy] do
       get "/page/:page", action: :index, on: :collection
-      resources :comments, only: [:new, :create]
+      resources :comments, only: [:new, :create, :destroy]
       resources :likes, only: [:new]
     end
   end
+  get "*path", to: "application#index"
 end

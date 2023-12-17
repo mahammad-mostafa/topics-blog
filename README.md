@@ -12,14 +12,16 @@ Check the below contents for further details about this project.
 
 # 📗 Contents
 
-- [Description](#description)
-- [Instructions](#instructions)
-- [Authors](#authors)
-- [Future](#future)
-- [Contributions](#contributions)
-- [Support](#support)
-- [Acknowledgements](#acknowledgements)
-- [License](#license)
+- [🏷️ Topics Blog](#️-topics-blog)
+- [📗 Contents](#-contents)
+- [📖 Description](#-description)
+- [🛠️ Instructions](#️-instructions)
+- [👥 Authors](#-authors)
+- [🔭 Future](#-future)
+- [🤝🏻 Contributions](#-contributions)
+- [⭐️ Support](#️-support)
+- [🙏🏻 Acknowledgements](#-acknowledgements)
+- [📝 License](#-license)
 
 <!-- DESCRIPTION -->
 
@@ -32,10 +34,13 @@ User authentication is required first.
 Every post contains comments & likes.
 Each user displays (`name` / `photo` / `bio`) & number of his `posts`.
 Each post displays (`title` / `text`) & number of its `comments` & `likes`.
+Any user can delete his own posts & comments.
 Pagination through posts using `kaminari` gem.
-It is built using `Rails` framework with `Ruby`.
-The project is configured to use `PostgreSQL` database.
-Unit tests are carried on models & controller requests using `RSpec`.
+Authentication using `Devise` gem.
+Authorization using `CanCanCan` gem.
+Porject is built using `Rails` framework with `Ruby`.
+It is configured to use `PostgreSQL` database.
+Unit tests are carried on (models / controller / views) using `RSpec`.
 
 📌 **Tech Stack:**
 - Programming language is `Ruby`
@@ -60,6 +65,8 @@ Unit tests are carried on models & controller requests using `RSpec`.
 - Implemented request tests on (`index` / `show`) methods for controllers (`UsersController` / `PostsController`)
 - Used `Capybara` gem to carry system tests on (`index` / `show`) action methods for controllers (`UsersController` / `PostsController`)
 - Built authentication with `Devise` gem before accessing any controller
+- Authorized rules with `CanCanCan` gem for users access
+- Any user can create (posts / comments / likes) & delete his own (posts / comments)
 
 <p align="right"><a href="#title">back to top</a></p>
 
@@ -115,6 +122,7 @@ bundle exec rspec -f d
 
 📌 **Zabihullah:**
 - [GitHub](https://github.com/ZabihullahNooriWardak)
+- [LinkedIn](https://www.linkedin.com/in/zabih-noori-aa59a924a/)
 
 <p align="right"><a href="#title">back to top</a></p>
 
