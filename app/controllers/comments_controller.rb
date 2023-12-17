@@ -2,7 +2,7 @@ class CommentsController < ApplicationController
   load_and_authorize_resource
 
   before_action :set_comment, only: [:destroy]
-  before_action :set_path, only: [:new, :create]
+  before_action :set_path, only: %i[new create]
 
   def new
     @comment = Comment.new
